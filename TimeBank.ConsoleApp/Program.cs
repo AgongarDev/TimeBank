@@ -14,6 +14,7 @@ namespace TimeBank.ConsoleApp
     class Program
     {
         private static DataConfig _dataConfig;
+        private static AdminManagement _adminMgm;
 
         static void Main(string[] args)
         {
@@ -21,7 +22,6 @@ namespace TimeBank.ConsoleApp
             Console.WriteLine("------------------------------------\n");
 
             _dataConfig = DataConfig.GetDataAccess();
-
             ShowHomeMenu();
         }
 
@@ -51,23 +51,21 @@ namespace TimeBank.ConsoleApp
             {
                 case "U":
                     UserActions.ShowUserMenu();
+                    ShowHomeMenu();
                     break;
                 case "T":
                     new TokenActions().ShowTokenMenu();
+                    ShowHomeMenu();
                     break;
                 case "S":
-                    ShowServiceMenu();
+                    new ServicesActions().ShowServicesMenu();
+                    ShowHomeMenu();
                     break;
                 case "C":
                     _dataConfig.NewConnection();
+                    ShowHomeMenu();
                     break;
             }
         }
-
-        private static void ShowServiceMenu()
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }

@@ -79,6 +79,7 @@ namespace TimeBank.ConsoleApp.UserMenu
                 user.Address = AddressForm.NewAddress(user.Address);
             }
 
+            user.InDate = System.DateTime.Now;
             InsertOrUpdate(user);
         }
         private static void InsertOrUpdate(User user)

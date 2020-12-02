@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ArrayOfUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <User>
+    <UserId>2</UserId>
+    <Name>toni</Name>
+    <LastName>dfon</LastName>
+    <InDate>0001-01-01T00:00:00</InDate>
+    <OutDate>0001-01-01T00:00:00</OutDate>
+    <Password>asdf</Password>
+    <Rating>0</Rating>
+    <Admin>true</Admin>
+    <AddressId>2</AddressId>
+  </User>
+  <User>
+    <UserId>3</UserId>
+    <Name>ana</Name>
+    <LastName>vidal</LastName>
+    <InDate>0001-01-01T00:00:00</InDate>
+    <OutDate>0001-01-01T00:00:00</OutDate>
+    <Password>ads</Password>
+    <Rating>0</Rating>
+    <Admin>true</Admin>
+    <AddressId>3</AddressId>
+  </User>
+  <User>
+    <UserId>4</UserId>
+    <Name>ana</Name>
+    <LastName>iglesias</LastName>
+    <InDate>0001-01-01T00:00:00</InDate>
+    <OutDate>0001-01-01T00:00:00</OutDate>
+    <Password>affsad</Password>
+    <Rating>0</Rating>
+    <Admin>true</Admin>
+    <AddressId>4</AddressId>
+  </User>
+</ArrayOfUser>

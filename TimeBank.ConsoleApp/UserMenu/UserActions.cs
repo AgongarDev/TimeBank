@@ -13,7 +13,7 @@ namespace TimeBank.ConsoleApp.UserMenu
 
         public static void ShowUserMenu()
         {
-            string[] validOptions = new string[] { "I", "E", "R", "L", "B" };
+            string[] validOptions = new string[] { "I", "E", "R", "L", "P", "B" };
             List<string> Options = new List<string>();
             Options.AddRange(validOptions);
             string choice;

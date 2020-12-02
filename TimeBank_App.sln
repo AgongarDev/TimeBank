@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeBank.ConsoleApp", "TimeBank.ConsoleApp\TimeBank.ConsoleApp.csproj", "{D91BCAA6-586F-496B-BB45-A0EC4DA77335}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeBank.ConsoleApp", "TimeBank.ConsoleApp\TimeBank.ConsoleApp.csproj", "{D91BCAA6-586F-496B-BB45-A0EC4DA77335}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeBank.Core", "TimeBank.Core\TimeBank.Core.csproj", "{8382963A-8596-4D16-BAEA-92914FDB4278}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeBank.Core", "TimeBank.Core\TimeBank.Core.csproj", "{8382963A-8596-4D16-BAEA-92914FDB4278}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeBank.Bussines", "TimeBank.Bussines\TimeBank.Bussines.csproj", "{DB6E9C27-F929-4986-A1C3-ED2F1F252EC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeBank.Bussines", "TimeBank.Bussines\TimeBank.Bussines.csproj", "{DB6E9C27-F929-4986-A1C3-ED2F1F252EC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

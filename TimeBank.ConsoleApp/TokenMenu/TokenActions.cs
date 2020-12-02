@@ -10,6 +10,10 @@ namespace TimeBank.ConsoleApp.TokenMenu
     class TokenActions
     {
         private AdminManagement _adminMgm;
+        public TokenActions()
+        {
+            _adminMgm = new AdminManagement();
+        }
 
         public void ShowTokenMenu()
         {
@@ -38,6 +42,7 @@ namespace TimeBank.ConsoleApp.TokenMenu
             {
                 case "I":
                     TokenForm.NewToken();
+                    ShowTokenMenu();
                     break;
                 case "R":
                     aux = GetToken();
@@ -45,9 +50,11 @@ namespace TimeBank.ConsoleApp.TokenMenu
                     {
                         RemoveToken(aux);
                     }
+                    ShowTokenMenu();
                     break;
                 case "L":
                     PrintTokens();
+                    ShowTokenMenu();
                     break;
                 case "B":
                     Program.ShowHomeMenu();
@@ -60,6 +67,7 @@ namespace TimeBank.ConsoleApp.TokenMenu
             List<Token> tokens = _adminMgm.GetTokens();
             if (tokens.Count == 0)
             {
+                Console.WriteLine("NOT TOKENS FOUND");
                 return;
             }
 

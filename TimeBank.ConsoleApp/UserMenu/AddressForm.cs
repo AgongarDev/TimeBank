@@ -54,8 +54,7 @@ namespace TimeBank.ConsoleApp.UserMenu
             insertData = Console.ReadLine();
             if (!String.IsNullOrWhiteSpace(insertData))
             {
-                int pc = CommonLib.ValidateNumEntrance(insertData) ? int.Parse(insertData) : 1;
-                address.PostalCode = pc;
+                address.Comments = insertData;
             }
 
             return address;

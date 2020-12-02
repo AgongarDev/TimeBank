@@ -75,6 +75,12 @@ namespace TimeBank.ConsoleApp.ServicesMenu
                     Console.WriteLine("INSERT QUANTITY OF TOKENS " + token.Name);
                     insertData = Console.ReadLine();
                     int q = CommonLib.ValidateNumEntrance(insertData) ? (int.Parse(insertData)) : 1;
+                    
+                    if (service.Price == null)
+                    {
+                        service.Price = new List<Token>();
+                    }
+
                     for (int i = 0; i <= q; i++)
                     {
                         service.Price.Add(token);

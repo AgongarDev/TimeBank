@@ -13,7 +13,7 @@ namespace TimeBank.Bussines.UseCases
         private static AdminManagement INSTANCE;
         private static Repository _repo;
 
-        public AdminManagement() { }
+        public AdminManagement() { _repo = new Repository(); }
         public static AdminManagement GetInstance()
         {
             if (INSTANCE == null)
@@ -262,8 +262,29 @@ namespace TimeBank.Bussines.UseCases
 
         public void InsertOrUpdate(Service service)
         {
+            try
+            {
+                if (!checkAvailable(service))
+                {
+                    throw new ArgumentException("Service data not valid");
+                }
+                _repo.InsertOrUpdate(service);
+            }
+            catch (Exception e)
+            {
+                throw new ArgumentException("Unnable to update database : " + e.Message);
+            }
+        }
+
+        private bool checkAvailable(Service service)
+        {
+            if (_repo.GetCategory(service.CategoryID) == null 
+                || _repo.GetUser(service.ProviderID) == null)
+            {
+                return false;
+            }
             service.Available = true;
-            _repo.InsertOrUpdate(service);
+            return true;
         }
 
         public void RemoveService(Service service)
