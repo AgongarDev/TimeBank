@@ -28,5 +28,10 @@ namespace TimeBank.Core.Models
         public List<Validation> Validations { get; set; }
         public List<Payment> Payments { get; set; }
         public List<Comment> Comments { get; set; }
+
+        public override string ToString()
+        {
+            return UserId + " : " + Name;
+        }
     }
 }

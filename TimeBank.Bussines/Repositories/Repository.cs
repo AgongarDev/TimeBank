@@ -113,7 +113,12 @@ namespace TimeBank.Bussines.Repositories
         internal List<User> GetUsers()
         {
             using var db = new TimeBankContext();
-            return db.Users.ToList();
+            return (from u in db.Users select u).ToList();
+        }
+        internal User GetUser(long id)
+        {
+            using var db = new TimeBankContext();
+            return (from u in db.Users where u.UserId == id select u).FirstOrDefault();
         }
         #endregion
 

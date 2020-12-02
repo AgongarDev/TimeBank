@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TimeBank.Core.DataAccess;
 
 namespace TimeBank.Core.Migrations
 {
     [DbContext(typeof(TimeBankContext))]
-    partial class TimeBankContextModelSnapshot : ModelSnapshot
+    [Migration("20201202152419_2")]
+    partial class _2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -319,7 +321,7 @@ namespace TimeBank.Core.Migrations
                     b.HasOne("TimeBank.Core.Models.User", "User")
                         .WithMany("Comments")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.SetNull)
                         .IsRequired();
 
                     b.Navigation("Incidence");
@@ -353,7 +355,7 @@ namespace TimeBank.Core.Migrations
                     b.HasOne("TimeBank.Core.Models.Validation", "Validation")
                         .WithOne("Paid")
                         .HasForeignKey("TimeBank.Core.Models.Payment", "ValidationId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
@@ -417,7 +419,7 @@ namespace TimeBank.Core.Migrations
                     b.HasOne("TimeBank.Core.Models.User", "User")
                         .WithMany("Validations")
                         .HasForeignKey("TBankUserID")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Service");

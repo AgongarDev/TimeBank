@@ -14,7 +14,7 @@ namespace TimeBank.Bussines.UseCases
 
         private UserManagement()
         {
-
+            _repo = new Repository();
         }
 
         public static UserManagement GetInstance()
@@ -31,12 +31,13 @@ namespace TimeBank.Bussines.UseCases
             {
                 user.Validations = new List<Validation>();
             }
-            return false;
+            _repo.InsertOrUpdate(user);
+            return true;
         }
 
         public User GetUser(long userID)
         {
-            throw new NotImplementedException();
+           return _repo.GetUser(userID);
         }
 
         public List<User> GetUsers()

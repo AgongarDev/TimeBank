@@ -27,6 +27,18 @@ namespace TimeBank.Core.DataAccess
             Database.EnsureCreated();
         }
 
+        protected override void OnConfiguring (DbContextOptionsBuilder builder)
+        {
+            builder.UseSqlServer(@"Data Source=DESKTOP-BI3GKO5\SQLEXPRESS;
+                                Initial Catalog=TimeBankDB;
+                                Integrated Security=True;
+                                Connect Timeout=30;
+                                Encrypt=False;
+                                TrustServerCertificate=False;
+                                ApplicationIntent=ReadWrite;
+                                MultiSubnetFailover=False");
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Payment>()
@@ -38,31 +50,31 @@ namespace TimeBank.Core.DataAccess
                 .HasOne(py => py.Paid)
                 .WithOne(v => v.Validation)
                 .HasForeignKey<Payment>(py => py.ValidationId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Validation>()
                 .HasOne(u => u.User)
                 .WithMany(v => v.Validations)
                 .HasForeignKey(val => val.TBankUserID)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Address>()
                 .HasOne(a => a.user)
                 .WithOne(u => u.Address)
                 .HasForeignKey<User>(u => u.AddressId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<User>()
                 .HasOne(u => u.Wallet)
                 .WithOne(w => w.User)
                 .HasForeignKey<Wallet>(w => w.TBankUserID)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Comment>()
                 .HasOne(c => c.User)
                 .WithMany(u => u.Comments)
                 .HasForeignKey(uc => uc.UserId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
