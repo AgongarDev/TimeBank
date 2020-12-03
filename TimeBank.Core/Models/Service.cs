@@ -17,5 +17,10 @@ namespace TimeBank.Core.Models
         
         public Validation Validation { get; set; }
         public List<Token> Price { get; set; }
+
+        public override string ToString()
+        {
+            return $"{ServiceID} : {Name} from Category {CategoryID}: {Category.Name} - {Description}";
+        }
     }
 }

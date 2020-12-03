@@ -10,5 +10,11 @@ namespace TimeBank.Core.Models
         public string Name { get; set; }
 
         public List<Service> Services { get; set; }
+
+        public override string ToString()
+        {
+            return ID + " : " + Name;
+        }
     }
+
 }

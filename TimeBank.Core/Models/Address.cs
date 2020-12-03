@@ -15,5 +15,10 @@ namespace TimeBank.Core.Models
         public string Comments { get; set; }
        
         public User user { get; set; }
+
+        public override string ToString()
+        {
+            return TypeStreet + @"\" + Street + ", " + Number + ", " + City + "-" + PostalCode; 
+        }
     }
 }

@@ -14,5 +14,15 @@ namespace TimeBank.Core.Models
         public Service Service { get; set; }
 
         public List<Comment> Comments { get; set; }
+
+        public override string ToString()
+        {
+            string status = "NoT Solved";
+            if (Solved)
+            {
+                status = "Solved";
+            }
+            return $"{ID}: status = {status} - {IssueDate.Date} service<{ServiceID}:{Service.Name}> ({Comments.Count} comments) \n {Description}";
+        }
     }
 }

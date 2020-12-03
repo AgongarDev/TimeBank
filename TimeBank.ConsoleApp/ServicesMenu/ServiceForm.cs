@@ -33,6 +33,10 @@ namespace TimeBank.ConsoleApp.ServicesMenu
             }
 
             List<Category> cats = _adminMgm.GetCategories();
+            foreach (Category c in cats)
+            {
+                Console.WriteLine(c.ToString());
+            }
             Console.WriteLine("CATEGORY : ");
             insertData = Console.ReadLine();
             if (!String.IsNullOrWhiteSpace(insertData))

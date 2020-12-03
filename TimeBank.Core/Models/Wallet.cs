@@ -14,6 +14,21 @@ namespace TimeBank.Core.Models
 
         public List<Token> Debit { get; set; }
         public List<Token> Credit { get; set; }
-        
+
+        public override string ToString()
+        {
+            string debit = string.Empty;
+            foreach (Token t in Debit)
+            {
+                debit += "\n" + t; 
+            }
+            string credit = string.Empty;
+            foreach (Token t in Credit)
+            {
+                credit += "\n" + t;
+            }
+
+            return $"Max Debit : {MaxDebit} - Min Credit : {MinCredit} - Current Debit : {debit} \n Current Credit : {credit}"; 
+        }
     }
 }

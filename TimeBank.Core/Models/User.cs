@@ -31,7 +31,7 @@ namespace TimeBank.Core.Models
 
         public override string ToString()
         {
-            return UserId + " : " + Name;
+            return $"{UserId} : {Name} - Providing services : {ProvideServices.Count} - Adquired services : {Validations.Count}";
         }
     }
 }
