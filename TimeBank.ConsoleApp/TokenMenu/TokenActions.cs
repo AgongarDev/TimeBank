@@ -17,7 +17,7 @@ namespace TimeBank.ConsoleApp.TokenMenu
 
         public void ShowTokenMenu()
         {
-            string[] validOptions = new string[] { "I", "R", "L", "B" };
+            string[] validOptions = new string[] { "I", "R", "L", "P", "F", "B" };
             List<string> Options = new List<string>();
             Options.AddRange(validOptions);
             string choice;
@@ -31,6 +31,8 @@ namespace TimeBank.ConsoleApp.TokenMenu
                 Console.WriteLine("I - INSERT TOKEN");
                 Console.WriteLine("R - REMOVE TOKEN");
                 Console.WriteLine("L - LIST TOKENS");
+                Console.WriteLine("P - PRINT TOKENS");
+                Console.WriteLine("F - FILL TOKENS");
                 Console.WriteLine("B - BACK");
 
                 choice = Console.ReadLine().ToUpper();
@@ -53,7 +55,15 @@ namespace TimeBank.ConsoleApp.TokenMenu
                     ShowTokenMenu();
                     break;
                 case "L":
+                    ListTokens();
+                    ShowTokenMenu();
+                    break;
+                case "P":
                     PrintTokens();
+                    ShowTokenMenu();
+                    break;
+                case "F":
+                    FillTokens();
                     ShowTokenMenu();
                     break;
                 case "B":
@@ -62,7 +72,37 @@ namespace TimeBank.ConsoleApp.TokenMenu
             }
         }
 
-        private void PrintTokens()
+        private void FillTokens()
+        {
+            try
+            {
+                Console.WriteLine("INSERT FILE NAME OR BLANK FOR DEFAULT");
+                string insertfile = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(insertfile))
+                {
+                    insertfile = "Tokens";
+                }
+                List<Token> gotTokens = CommonLib.FromXml<List<Token>>("xml", insertfile);
+                try
+                {
+                    foreach (Token t in gotTokens)
+                    {
+                        _adminMgm.InsertOrUpdate(t);
+                    }
+                    Console.WriteLine("TOKENS UPDATED");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("ERROR UPDATING TOKEN DATA (" + ex.Message + ")");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("NOT VALID TOKENS FOUND ON FILE (" + e.Message + ")");
+            }
+        }
+
+        private void ListTokens()
         {
             List<Token> tokens = _adminMgm.GetTokens();
             if (tokens.Count == 0)
@@ -75,6 +115,25 @@ namespace TimeBank.ConsoleApp.TokenMenu
             {
                 Console.WriteLine(token.ToString());
             }
+        }
+
+        private void PrintTokens()
+        {
+            try
+            {
+                List<Token> tokens = _adminMgm.GetTokens();
+                if (tokens.Count == 0)
+                {
+                    Console.WriteLine("NOT TOKENS FOUND");
+                    return;
+                }
+                CommonLib.ToXml(tokens, "xml", "Tokens");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("UNNABLE TO PRINT TOKENS TO Tokens.xml FILE (" + e.Message + ")");
+            }
+
         }
 
         private void RemoveToken(Token aux)

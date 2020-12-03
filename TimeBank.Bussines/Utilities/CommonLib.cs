@@ -38,7 +38,7 @@ namespace TimeBank.Bussines.Utilities
             Serializer ser = new Serializer();
             
             string path = Directory.GetCurrentDirectory();
-            using StreamWriter outputFile = new StreamWriter(Path.Combine(path, $@"..\..\..\{folderN}\{fileN}"));
+            using StreamWriter outputFile = new StreamWriter(Path.Combine(path, $@"..\..\..\{folderN}\{fileN}.xml"));
             string xmlOutputData = ser.Serialize<T>(serialObj);
             outputFile.WriteLine(xmlOutputData);
         }
@@ -47,7 +47,7 @@ namespace TimeBank.Bussines.Utilities
         {
             Serializer ser = new Serializer();
 
-            string path = Directory.GetCurrentDirectory() + $@"\..\..\..\{folderN}\{fileN}";
+            string path = Directory.GetCurrentDirectory() + $@"\..\..\..\{folderN}\{fileN}.xml";
             string xmlInputData = File.ReadAllText(path);
 
             return (T)ser.Deserialize<T> (xmlInputData);

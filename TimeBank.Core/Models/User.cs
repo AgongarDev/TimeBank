@@ -8,6 +8,16 @@ namespace TimeBank.Core.Models
 {
     public class User
     {
+        public User() 
+        {
+            InDate = System.DateTime.Now;
+            Wallet = new Wallet();
+            Address = new Address();
+            ProvideServices = new List<Service>();
+            Validations = new List<Validation>();
+            Payments = new List<Payment>();
+            Comments = new List<Comment>();
+        }
         public long UserId { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }

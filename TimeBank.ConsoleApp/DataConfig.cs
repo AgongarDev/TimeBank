@@ -80,7 +80,7 @@ namespace TimeBank.ConsoleApp
         {
             try
             {
-                CommonLib.ToXml(connectionData, "dbconfig", "TimeBankDBConfig.xml");
+                CommonLib.ToXml(connectionData, "dbconfig", "TimeBankDBConfig");
                 Console.WriteLine("Session Data Updated");
             }
             catch (Exception)
@@ -93,7 +93,7 @@ namespace TimeBank.ConsoleApp
         {
             try
             {
-                return CommonLib.FromXml<ConnectionData>("dbconfig", "TimeBankDBConfig.xml");
+                return CommonLib.FromXml<ConnectionData>("dbconfig", "TimeBankDBConfig");
             }
             catch (Exception)
             {

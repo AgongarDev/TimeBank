@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ArrayOfToken xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Token>
+    <ID>4</ID>
+    <Name>Gold</Name>
+    <Hours>50</Hours>
+  </Token>
+  <Token>
+    <ID>5</ID>
+    <Name>silver</Name>
+    <Hours>20</Hours>
+  </Token>
+  <Token>
+    <ID>6</ID>
+    <Name>Dorado</Name>
+    <Hours>15</Hours>
+  </Token>
+</ArrayOfToken>

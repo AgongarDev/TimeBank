@@ -264,7 +264,7 @@ namespace TimeBank.Bussines.UseCases
         {
             try
             {
-                if (!checkAvailable(service))
+                if (!SafeUpdate(service))
                 {
                     throw new ArgumentException("Service data not valid");
                 }
@@ -276,7 +276,7 @@ namespace TimeBank.Bussines.UseCases
             }
         }
 
-        private bool checkAvailable(Service service)
+        private bool SafeUpdate(Service service)
         {
             if (_repo.GetCategory(service.CategoryID) == null 
                 || _repo.GetUser(service.ProviderID) == null)

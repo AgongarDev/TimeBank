@@ -46,7 +46,12 @@ namespace TimeBank.Bussines.Repositories
             }
             else
             {
-                query = service;
+                query.Name = service.Name;
+                query.Price = service.Price;
+                query.Provider = service.Provider;
+                query.ProviderID = service.ProviderID;
+                query.ServiceID = service.ServiceID;
+                query.Validation = service.Validation;
             }
             await db.SaveChangesAsync();
         }
@@ -68,7 +73,14 @@ namespace TimeBank.Bussines.Repositories
             }
             else
             {
-                query = val;
+                query.Incidences = val.Incidences ?? new List<Incidence>();
+                query.Paid = val.Paid;
+                query.Service = val.Service;
+                query.ServiceID = val.ServiceID;
+                query.ServiceUsedOn = val.ServiceUsedOn;
+                query.TBankUserID = val.TBankUserID;
+                query.Validated = val.Validated;
+                query.ValidatedOn = val.ValidatedOn;
             }
             await db.SaveChangesAsync();
         }
@@ -100,7 +112,22 @@ namespace TimeBank.Bussines.Repositories
             }
             else
             {
-                query = user;
+                query.Address = user.Address ?? new Address();
+                query.AddressId = user.AddressId;
+                query.Admin = user.Admin;
+                query.Comments = user.Comments ?? new List<Comment>();
+                query.InDate = user.InDate;
+                query.LastName = user.LastName;
+                query.Name = user.Name;
+                query.OutDate = user.OutDate;
+                query.Password = user.Password;
+                query.Payments = user.Payments ?? new List<Payment>();
+                query.ProvideServices = user.ProvideServices;
+                query.Rating = user.Rating;
+                query.UserId = user.UserId;
+                query.Validations = user.Validations ?? new List<Validation>();
+                query.Wallet = user.Wallet ?? new Wallet();
+
             }
             await db.SaveChangesAsync();
         }
@@ -133,7 +160,8 @@ namespace TimeBank.Bussines.Repositories
             }
             else
             {
-                query = token;
+                query.Name = token.Name;
+                query.Hours = token.Hours;
             }
             await db.SaveChangesAsync();
         }
@@ -166,7 +194,11 @@ namespace TimeBank.Bussines.Repositories
             }
             else
             {
-                query = payment;
+                query.PaymentType = payment.PaymentType;
+                query.User = payment.User;
+                query.TBankUserID = payment.TBankUserID;
+                query.Validation = payment.Validation;
+                query.ValidationId = payment.ValidationId;
             }
             await db.SaveChangesAsync();
         }
@@ -198,7 +230,8 @@ namespace TimeBank.Bussines.Repositories
             }
             else
             {
-                query = cat;
+                query.Name = cat.Name;
+                query.Services = cat.Services ?? new List<Service>();
             }
             await db.SaveChangesAsync();
         }
@@ -215,7 +248,11 @@ namespace TimeBank.Bussines.Repositories
             }
             else
             {
-                query = incidence;
+                query.Service = incidence.Service;
+                query.ServiceID = incidence.ServiceID;
+                query.Solved = incidence.Solved;
+                query.Description = incidence.Description;
+                query.Comments = incidence.Comments ?? new List<Comment>();
             }
             await db.SaveChangesAsync();
         }

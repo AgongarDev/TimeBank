@@ -1,36 +1,107 @@
 <?xml version="1.0" encoding="utf-16"?>
 <ArrayOfUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <User>
-    <UserId>2</UserId>
-    <Name>toni</Name>
-    <LastName>dfon</LastName>
-    <InDate>0001-01-01T00:00:00</InDate>
+    <UserId>7</UserId>
+    <Name>Toni</Name>
+    <LastName>Gon</LastName>
+    <InDate>2020-12-03T12:51:49.6434028</InDate>
     <OutDate>0001-01-01T00:00:00</OutDate>
     <Password>asdf</Password>
     <Rating>0</Rating>
     <Admin>true</Admin>
-    <AddressId>2</AddressId>
+    <Wallet>
+      <ID>0</ID>
+      <MaxDebit>0</MaxDebit>
+      <MinCredit>0</MinCredit>
+      <TBankUserID>0</TBankUserID>
+    </Wallet>
+    <AddressId>7</AddressId>
+    <Address>
+      <ID>0</ID>
+      <Number>0</Number>
+      <PostalCode>0</PostalCode>
+    </Address>
+    <ProvideServices />
+    <Validations />
+    <Payments />
+    <Comments />
   </User>
   <User>
-    <UserId>3</UserId>
-    <Name>ana</Name>
-    <LastName>vidal</LastName>
-    <InDate>0001-01-01T00:00:00</InDate>
+    <UserId>8</UserId>
+    <Name>Ana</Name>
+    <LastName>Vidal</LastName>
+    <InDate>2020-12-03T12:56:18.7297149</InDate>
     <OutDate>0001-01-01T00:00:00</OutDate>
-    <Password>ads</Password>
+    <Password>123</Password>
     <Rating>0</Rating>
     <Admin>true</Admin>
-    <AddressId>3</AddressId>
+    <Wallet>
+      <ID>0</ID>
+      <MaxDebit>0</MaxDebit>
+      <MinCredit>0</MinCredit>
+      <TBankUserID>0</TBankUserID>
+    </Wallet>
+    <AddressId>8</AddressId>
+    <Address>
+      <ID>0</ID>
+      <Number>0</Number>
+      <PostalCode>0</PostalCode>
+    </Address>
+    <ProvideServices />
+    <Validations />
+    <Payments />
+    <Comments />
   </User>
   <User>
-    <UserId>4</UserId>
-    <Name>ana</Name>
-    <LastName>iglesias</LastName>
-    <InDate>0001-01-01T00:00:00</InDate>
+    <UserId>10</UserId>
+    <Name>Ana</Name>
+    <LastName>Iglesias</LastName>
+    <InDate>2020-12-03T13:07:36.4059538</InDate>
     <OutDate>0001-01-01T00:00:00</OutDate>
-    <Password>affsad</Password>
+    <Password>123</Password>
     <Rating>0</Rating>
     <Admin>true</Admin>
-    <AddressId>4</AddressId>
+    <Wallet>
+      <ID>0</ID>
+      <MaxDebit>0</MaxDebit>
+      <MinCredit>0</MinCredit>
+      <TBankUserID>0</TBankUserID>
+    </Wallet>
+    <AddressId>10</AddressId>
+    <Address>
+      <ID>0</ID>
+      <Number>0</Number>
+      <PostalCode>0</PostalCode>
+    </Address>
+    <ProvideServices />
+    <Validations />
+    <Payments />
+    <Comments />
+  </User>
+  <User>
+    <UserId>11</UserId>
+    <Name>Jesus</Name>
+    <LastName>gutierrez</LastName>
+    <InDate>2020-12-03T13:08:33.9739152</InDate>
+    <OutDate>0001-01-01T00:00:00</OutDate>
+    <Password>adsf</Password>
+    <Rating>0</Rating>
+    <Admin>true</Admin>
+    <Wallet>
+      <ID>0</ID>
+      <MaxDebit>0</MaxDebit>
+      <MinCredit>0</MinCredit>
+      <TBankUserID>0</TBankUserID>
+    </Wallet>
+    <AddressId>11</AddressId>
+    <Address>
+      <ID>0</ID>
+      <Number>0</Number>
+      <PostalCode>0</PostalCode>
+    </Address>
+    <ProvideServices />
+    <Validations />
+    <Payments />
+    <Comments />
   </User>
 </ArrayOfUser>

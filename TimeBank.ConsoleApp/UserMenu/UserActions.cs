@@ -93,7 +93,7 @@ namespace TimeBank.ConsoleApp.UserMenu
             {
                 try
                 {
-                    CommonLib.ToXml(users, "xml", "users.xml");
+                    CommonLib.ToXml(users, "xml", "Users");
                 }
                 catch (Exception)
                 {
