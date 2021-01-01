@@ -104,4 +104,56 @@
     <Payments />
     <Comments />
   </User>
+  <User>
+    <UserId>12</UserId>
+    <Name>Cristina</Name>
+    <LastName>Casan</LastName>
+    <InDate>2020-12-20T18:41:09.3905088</InDate>
+    <OutDate>0001-01-01T00:00:00</OutDate>
+    <Password>123</Password>
+    <Rating>0</Rating>
+    <Admin>true</Admin>
+    <Wallet>
+      <ID>0</ID>
+      <MaxDebit>0</MaxDebit>
+      <MinCredit>0</MinCredit>
+      <TBankUserID>0</TBankUserID>
+    </Wallet>
+    <AddressId>12</AddressId>
+    <Address>
+      <ID>0</ID>
+      <Number>0</Number>
+      <PostalCode>0</PostalCode>
+    </Address>
+    <ProvideServices />
+    <Validations />
+    <Payments />
+    <Comments />
+  </User>
+  <User>
+    <UserId>13</UserId>
+    <Name>Gael</Name>
+    <LastName>gonzalez</LastName>
+    <InDate>2020-12-20T18:51:11.9399937</InDate>
+    <OutDate>0001-01-01T00:00:00</OutDate>
+    <Password>123</Password>
+    <Rating>0</Rating>
+    <Admin>false</Admin>
+    <Wallet>
+      <ID>0</ID>
+      <MaxDebit>0</MaxDebit>
+      <MinCredit>0</MinCredit>
+      <TBankUserID>0</TBankUserID>
+    </Wallet>
+    <AddressId>13</AddressId>
+    <Address>
+      <ID>0</ID>
+      <Number>0</Number>
+      <PostalCode>0</PostalCode>
+    </Address>
+    <ProvideServices />
+    <Validations />
+    <Payments />
+    <Comments />
+  </User>
 </ArrayOfUser>
