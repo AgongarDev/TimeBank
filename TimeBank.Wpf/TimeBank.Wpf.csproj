@@ -7,11 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="70512590_10157366852481768_702672983386226688_n.jpg" />
     <None Remove="boton_cuenta.png" />
+    <None Remove="boton_cuenta_verde-01.png" />
+    <None Remove="home_green-01.png" />
+    <None Remove="home_white-01.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="70512590_10157366852481768_702672983386226688_n.jpg" />
     <Resource Include="boton_cuenta.png" />
+    <Resource Include="boton_cuenta_verde-01.png" />
+    <Resource Include="home_green-01.png" />
+    <Resource Include="home_white-01.png" />
   </ItemGroup>
 
 </Project>
