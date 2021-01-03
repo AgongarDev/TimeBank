@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeBank.Core", "TimeBank.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeBank.Bussines", "TimeBank.Bussines\TimeBank.Bussines.csproj", "{DB6E9C27-F929-4986-A1C3-ED2F1F252EC6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeBank.Presentation", "TimeBank.Presentation\TimeBank.Presentation.csproj", "{830CC16F-8C56-442A-8374-035A031E0FB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{DB6E9C27-F929-4986-A1C3-ED2F1F252EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB6E9C27-F929-4986-A1C3-ED2F1F252EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB6E9C27-F929-4986-A1C3-ED2F1F252EC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{830CC16F-8C56-442A-8374-035A031E0FB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{830CC16F-8C56-442A-8374-035A031E0FB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{830CC16F-8C56-442A-8374-035A031E0FB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{830CC16F-8C56-442A-8374-035A031E0FB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

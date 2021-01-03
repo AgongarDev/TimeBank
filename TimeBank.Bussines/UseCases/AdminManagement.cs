@@ -14,6 +14,7 @@ namespace TimeBank.Bussines.UseCases
         private static Repository _repo;
 
         public AdminManagement() { _repo = new Repository(); }
+        
         public static AdminManagement GetInstance()
         {
             if (INSTANCE == null)
@@ -22,6 +23,7 @@ namespace TimeBank.Bussines.UseCases
             }
             return INSTANCE;
         }
+        
         public List<Token> GetTokens()
         {
             return _repo.GetTokensList();
@@ -85,6 +87,7 @@ namespace TimeBank.Bussines.UseCases
             }
             return service;
         }
+        
         public Service GetService(long serviceId)
         {
             Service service = _repo.GetService(serviceId);
@@ -169,8 +172,6 @@ namespace TimeBank.Bussines.UseCases
             int debitHours = CommonLib.TokenListToHours(wallet.Debit);
             return debitHours + diff > wallet.MaxDebit;
         }
-
-
 
         public Category GetCategory(string name)
         {
