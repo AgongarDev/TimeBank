@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TimeBank.Bussines.UseCases;
+using TimeBank.Bussines.Utilities;
 using TimeBank.Core.Models;
 
 namespace TimeBank.Wpf
@@ -27,7 +28,18 @@ namespace TimeBank.Wpf
         public MainWindow()
         {
             InitializeComponent();
+            CenterWindow();
             UserMgm = UserManagement.GetInstance();
+        }
+
+        private void CenterWindow()
+        {
+            double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
+            double screenHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
+            double windowWidth = this.Width;
+            double windowHeight = this.Height;
+            this.Left = (screenWidth / 2) - (windowWidth / 2);
+            this.Top = (screenHeight / 2) - (windowHeight / 2);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -44,7 +56,7 @@ namespace TimeBank.Wpf
             {
                 id = Txt_UserId.Text;
             }
-         
+
             User u = UserMgm.GetUserAccess(id);
             if (u == null)
             {
@@ -59,7 +71,7 @@ namespace TimeBank.Wpf
             }
             AccessUser(u);
         }
-    
+
         private void AccessAdmin(User u)
         {
             UserMgm.CurrentUser = u;

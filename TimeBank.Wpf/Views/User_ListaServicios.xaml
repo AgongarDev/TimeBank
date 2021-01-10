@@ -29,7 +29,7 @@
         <TextBlock TextAlignment="Right" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="74" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Language="es-es" Text="Categoría"/></TextBlock>
         <ComboBox x:Name="cb_Categorias" HorizontalAlignment="Left" Margin="464,10,0,0" VerticalAlignment="Top" Width="196" Background="White" BorderBrush="White"/>
         <DataGrid x:Name="Dg_Servicios" Margin="0,49,10,0" MouseDoubleClick="Dg_Servicios_MouseDoubleClick"/>
-        <Grid x:Name="DetalleServicio" Background="White" Visibility="Visible">
+        <Grid x:Name="DetalleServicio" Background="White" Visibility="Visible" d:IsHidden="True">
             <Grid.DataContext>
                 <Models:Service/>
             </Grid.DataContext>
@@ -37,13 +37,16 @@
             <TextBlock TextAlignment="Center" HorizontalAlignment="Center" Margin="0,21,0,0" Text="Demandar Servicio" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontFamily="Carmilla" FontSize="30" Height="35" Foreground="#FF79A386"/>
             <TextBlock TextAlignment="Center" HorizontalAlignment="Center" Margin="0,98,0,0" Text="{Binding Description}" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" FontFamily="Noto Sans" Foreground="#FF79A386" Background="{x:Null}"/>
             <Button x:Name="Btn_Demandar" Content="DEMANDAR" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="130" FontFamily="Noto Sans" Foreground="#FFF7F7F7" BorderBrush="White" Background="#FF79A386" Margin="623,296,0,0" Click="Btn_Demandar_Click"/>
-            <TextBlock x:Name="Txt_PrecioServicio" TextAlignment="Left" HorizontalAlignment="Left" Margin="403,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Language="es-es" Text="{Binding PriceHours}"/></TextBlock>
-            <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="256,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}" Text="Fecha Inicio"/>
-            <TextBlock TextAlignment="Left" HorizontalAlignment="Left" Margin="403,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Language="es-es" Text="{Binding DateIni}"/></TextBlock>
-            <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="305,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Language="es-es" Text="Precio"/></TextBlock>
-            <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="256,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Text="Fecha "/><Run Language="es-es" Text="Fin"/></TextBlock>
-            <TextBlock TextAlignment="Left" HorizontalAlignment="Left" Margin="403,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Text="{Binding DateEnd}"/></TextBlock>
+            <TextBlock x:Name="Txt_PrecioServicio" TextAlignment="Left" HorizontalAlignment="Left" Margin="427,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Language="es-es" Text="{Binding PriceHours}"/></TextBlock>
+            <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="280,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}" Text="Fecha Inicio"/>
+            <TextBlock TextAlignment="Left" HorizontalAlignment="Left" Margin="426,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Language="es-es" Text="{Binding DateIni}"/></TextBlock>
+            <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="328,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Language="es-es" Text="Precio"/></TextBlock>
+            <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="280,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Text="Fecha "/><Run Language="es-es" Text="Fin"/></TextBlock>
+            <TextBlock TextAlignment="Left" HorizontalAlignment="Left" Margin="426,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Text="{Binding DateEnd}"/></TextBlock>
             <Button x:Name="Btn_Demandar_Copy" Content="VOLVER" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="130" FontFamily="Noto Sans" Foreground="#FF79A386" BorderBrush="#FF79A386" Background="White" Margin="475,296,0,0" Click="Btn_ServiceBack_Click"/>
+            <TextBlock x:Name="Txt_ServicioPropio" TextAlignment="Center" HorizontalAlignment="Left" Margin="640,277,0,0" Text="Servicio propio" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" FontFamily="Noto Sans" Foreground="#FF4564A6" Background="{x:Null}"/>
+            <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="215,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}" Text="Proveedor del servicio"/>
+            <TextBlock TextAlignment="Left" HorizontalAlignment="Left" Margin="426,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Language="es-es" Text="{Binding ProviderID}"/><Run Language="es-es" Text=" "/><Run Language="es-es" Text="{Binding Provider.Name}"/></TextBlock>
         </Grid>
 
     </Grid>

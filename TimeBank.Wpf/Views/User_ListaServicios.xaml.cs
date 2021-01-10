@@ -44,7 +44,13 @@ namespace TimeBank.Wpf.Views
 
         private void GetServicios()
         {
+            var categorias = AdminMgm.GetCategories();
+            cb_Categorias.ItemsSource = categorias;
+
             servicios = AdminMgm.GetAllServices();
+            
+            if (servicios.Count < 0) return; 
+
             foreach (Service item in servicios)
             {
                 tbservicios.Add(item);
@@ -54,7 +60,6 @@ namespace TimeBank.Wpf.Views
 
         private void BtnBuscarServicio_Click(object sender, RoutedEventArgs e)
         {
-            Service s = null;
             if (!string.IsNullOrWhiteSpace(Txt_ServicioID.Text))
             {
                 if (CommonLib.ValidateNumEntrance(Txt_ServicioID.Text))
@@ -62,7 +67,7 @@ namespace TimeBank.Wpf.Views
                     ListCollectionView coll = new ListCollectionView(tbservicios);
                     coll.Filter = (e) =>
                     {
-                        Service ser = e as Service;
+                        ser = e as Service;
                         if (ser.ServiceID == long.Parse(Txt_ServicioID.Text))
                         {
                             return true;
@@ -79,7 +84,7 @@ namespace TimeBank.Wpf.Views
                 ListCollectionView coll = new ListCollectionView(tbservicios);
                 coll.Filter = (e) =>
                 {
-                    Service ser = e as Service;
+                    ser = e as Service;
                     if (ser.Name == Txt_ServicioID.Text)
                     {
                         return true;
@@ -95,7 +100,7 @@ namespace TimeBank.Wpf.Views
                 ListCollectionView coll = new ListCollectionView(tbservicios);
                 coll.Filter = (e) =>
                 {
-                    Service ser = e as Service;
+                    ser = e as Service;
                     Category category = cb_Categorias.SelectedItem as Category;
                     if (ser.CategoryID == category.ID)
                     {
@@ -123,6 +128,15 @@ namespace TimeBank.Wpf.Views
             {
                 precio += t.Hours;
             }
+            if (ser.ProviderID == UserManagement.GetInstance().CurrentUser.UserId)
+            {
+                Txt_ServicioPropio.Visibility = Visibility.Visible;
+                Btn_Demandar.IsEnabled = false;
+            } else
+            {
+                Txt_ServicioPropio.Visibility = Visibility.Hidden;
+                Btn_Demandar.IsEnabled = true;
+            }
             Txt_PrecioServicio.Text = precio.ToString();
         }
 
@@ -132,7 +146,14 @@ namespace TimeBank.Wpf.Views
             if (messageBoxResult == MessageBoxResult.Yes)
             {
                 User u = UserManagement.GetInstance().CurrentUser;
-                AdminMgm.NewPayment(u, ser, PaymentType.Direct);
+                try
+                {
+                    AdminMgm.NewPayment(u, ser, PaymentType.Direct);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Compruebe su saldo en tokens o hable con un administrador de TimeBank\n \n Detalle: " + ex.Message, "Alerta: SERVICIO NO ADQUIRIDO", MessageBoxButton.OK, MessageBoxImage.Information); ;
+                }
             }
         }
 

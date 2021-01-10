@@ -17,9 +17,9 @@
             </TextBox.ToolTip>
         </TextBox>
         <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="50,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="74" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Language="es-es" Text="Categoría"/></TextBlock>
-        <ComboBox HorizontalAlignment="Left" Margin="136,15,0,0" VerticalAlignment="Top" Width="196" Background="White" BorderBrush="White"/>
+        <ComboBox x:Name="Cb_Categorias" HorizontalAlignment="Left" Margin="136,15,0,0" VerticalAlignment="Top" Width="196" Background="White" BorderBrush="White"/>
         <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="29,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Language="es-es" Text="Descripción"/></TextBlock>
-        <TextBox x:Name="Txt_UserName_Copy" HorizontalAlignment="Left" Style="{DynamicResource roundTxtBox}" Height="24" VerticalAlignment="Top" Width="614" Margin="136,84,0,0">
+        <TextBox x:Name="Txt_DescServicio" HorizontalAlignment="Left" Style="{DynamicResource roundTxtBox}" Height="24" VerticalAlignment="Top" Width="614" Margin="136,84,0,0">
             <TextBox.ToolTip>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="White"/>
@@ -29,10 +29,10 @@
         </TextBox>
         <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="29,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Language="es-es" Text="Fecha Inicio"/></TextBlock>
         <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="368,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Text="Fecha "/><Run Language="es-es" Text="Fin"/></TextBlock>
-        <DatePicker HorizontalAlignment="Left" Margin="136,131,0,0" VerticalAlignment="Top"/>
-        <DatePicker HorizontalAlignment="Left" Margin="477,128,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="DatipiIni" HorizontalAlignment="Left" Margin="136,131,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="DatipiEnd" HorizontalAlignment="Left" Margin="477,128,0,0" VerticalAlignment="Top"/>
         <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="64,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Language="es-es" Text="Precio"/></TextBlock>
-        <TextBox x:Name="Txt_UserName_Copy1" HorizontalAlignment="Left" Style="{DynamicResource roundTxtBox}" Height="24" VerticalAlignment="Top" Width="56" Margin="136,180,0,0">
+        <TextBox x:Name="Txt_Precio" HorizontalAlignment="Left" Style="{DynamicResource roundTxtBox}" Height="24" VerticalAlignment="Top" Width="56" Margin="136,180,0,0">
             <TextBox.ToolTip>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="White"/>
@@ -40,7 +40,8 @@
                 </LinearGradientBrush>
             </TextBox.ToolTip>
         </TextBox>
-        <Button x:Name="Btn_Ofertar_Copy" Content="GUARDAR" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="134" FontFamily="Noto Sans" Foreground="#FFF7F7F7" BorderBrush="White" Background="#FF79A386" Margin="661,303,0,0"/>
+        <Button x:Name="Btn_Ofertar_Copy" Content="GUARDAR" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="134" FontFamily="Noto Sans" Foreground="#FFF7F7F7" BorderBrush="White" Background="#FF79A386" Margin="661,303,0,0" Click="Btn_Ofertar_Copy_Click"/>
+        <Button x:Name="Btn_limpiar" Content="LIMPIAR" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="134" FontFamily="Noto Sans" Foreground="#FF79A386" BorderBrush="#FF79A386" Background="White" Margin="506,303,0,0" Click="Btn_limpiar_Click"/>
 
     </Grid>
 </UserControl>

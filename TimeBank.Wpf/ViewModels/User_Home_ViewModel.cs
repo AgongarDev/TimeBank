@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TimeBank.Wpf.ViewModels
 {
-    class User_ofertarServicio_ViewModel
+    public class User_Home_ViewModel
     {
     }
 }

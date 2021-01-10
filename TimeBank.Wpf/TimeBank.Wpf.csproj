@@ -5,10 +5,17 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <StartupObject>TimeBank.Wpf.App</StartupObject>
+    <Platforms>AnyCPU;x64</Platforms>
+    <PackageIcon>timer_icon_176968.ico</PackageIcon>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath></OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutputPath />
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,6 +25,17 @@
     <None Remove="home_green-01.png" />
     <None Remove="home_white-01.png" />
     <None Remove="img000186.png" />
+    <None Include="E:\DAM-UOC\Proyectos\P06_Persistencia.Net\timer_icon_176968.ico">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>

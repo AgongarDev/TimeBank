@@ -193,7 +193,7 @@ namespace TimeBank.Bussines.Repositories
         internal List<Token> GetTokensList()
         {
             using var db = new TimeBankContext();
-            return (from token in db.Tokens select token).ToList();
+            return (from token in db.Tokens select token).OrderByDescending(x=> x.Hours).ToList();
         }
         internal async void RemoveToken(Token token)
         {

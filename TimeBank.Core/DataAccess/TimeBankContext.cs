@@ -29,14 +29,7 @@ namespace TimeBank.Core.DataAccess
 
         protected override void OnConfiguring (DbContextOptionsBuilder builder)
         {
-            builder.UseSqlServer(@"Data Source=DESKTOP-BI3GKO5\SQLEXPRESS;
-                                Initial Catalog=TimeBankDB;
-                                Integrated Security=True;
-                                Connect Timeout=30;
-                                Encrypt=False;
-                                TrustServerCertificate=False;
-                                ApplicationIntent=ReadWrite;
-                                MultiSubnetFailover=False");
+            builder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

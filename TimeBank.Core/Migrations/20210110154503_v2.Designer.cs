@@ -3,21 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TimeBank.Core.DataAccess;
 
 namespace TimeBank.Core.Migrations
 {
     [DbContext(typeof(TimeBankContext))]
-    partial class TimeBankContextModelSnapshot : ModelSnapshot
+    [Migration("20210110154503_v2")]
+    partial class v2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.0");
+                .HasAnnotation("ProductVersion", "5.0.1");
 
             modelBuilder.Entity("TimeBank.Core.Models.Address", b =>
                 {
@@ -163,10 +165,10 @@ namespace TimeBank.Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateEnd")
-                        .HasColumnType("DateTime2");
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DateIni")
-                        .HasColumnType("DateTime2");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");

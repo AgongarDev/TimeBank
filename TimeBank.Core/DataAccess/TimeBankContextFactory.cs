@@ -13,14 +13,7 @@ namespace TimeBank.Core.DataAccess
             var optionsBuilder = new DbContextOptionsBuilder<TimeBankContext>();
             ConnectionData con = new ConnectionData();
             //optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-BI3GKO5\SQLEXPRESS;Initial Catalog="TimeBankDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-BI3GKO5\SQLEXPRESS;
-                                Initial Catalog=TimeBankDB;
-                                Integrated Security=True;
-                                Connect Timeout=30;
-                                Encrypt=False;
-                                TrustServerCertificate=False;
-                                ApplicationIntent=ReadWrite;
-                                MultiSubnetFailover=False");
+            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
             return new TimeBankContext(optionsBuilder.Options);
         }

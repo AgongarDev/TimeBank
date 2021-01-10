@@ -23,17 +23,24 @@ namespace TimeBank.Wpf
         public user_View()
         {
             InitializeComponent();
-            Txt_Wellcome.Text = "¡Hola " + UserMgm.CurrentUser.Name + "!";
+            CenterWindow();
+            Txt_Wellcome.Text = "¡ Hola " + UserMgm.CurrentUser.Name + " !";
+            DataContext = new User_Home_ViewModel();
+        }
+
+        private void CenterWindow()
+        {
+            double screenWidth = SystemParameters.PrimaryScreenWidth;
+            double screenHeight = SystemParameters.PrimaryScreenHeight;
+            double windowWidth = this.Width;
+            double windowHeight = this.Height;
+            this.Left = (screenWidth / 2) - (windowWidth / 2);
+            this.Top = (screenHeight / 2) - (windowHeight / 2);
         }
 
         private void BtnBuscarServicio(object sender, RoutedEventArgs e)
         {
             DataContext = new User_ListaServicios_ViewModel();
-        }
-
-        private void BtnOfertarServicio(object sender, RoutedEventArgs e)
-        {
-            DataContext = new User_ofertarServicio_ViewModel();
         }
 
         private void BtnGestionarServicio(object sender, RoutedEventArgs e)
