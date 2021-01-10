@@ -244,7 +244,7 @@ namespace TimeBank.ConsoleApp.ServicesMenu
                 Console.WriteLine("CHOOSE PAY METHOD");
                 string p = Console.ReadLine();
 
-                _adminMgm.NewPayment(user, service, int.Parse(p));
+                _adminMgm.NewPayment(user, service, (PaymentType)int.Parse(p));
                 return true;
             }
             catch (Exception e)

@@ -4,6 +4,11 @@ namespace TimeBank.Core.Models
 {
     public class Wallet
     {
+        public Wallet()
+        {
+            Debit = new List<Token>();
+            Credit = new List<Token>();
+        }
         public long ID { get; set; }
         public int MaxDebit { get; set; }
         public int MinCredit { get; set; }
@@ -17,11 +22,13 @@ namespace TimeBank.Core.Models
 
         public override string ToString()
         {
+            if (Debit == null) Debit = new List<Token>();
             string debit = string.Empty;
             foreach (Token t in Debit)
             {
                 debit += "\n" + t; 
             }
+            if (Credit == null) Credit = new List<Token>();
             string credit = string.Empty;
             foreach (Token t in Credit)
             {

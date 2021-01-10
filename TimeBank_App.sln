@@ -9,15 +9,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeBank.Core", "TimeBank.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeBank.Bussines", "TimeBank.Bussines\TimeBank.Bussines.csproj", "{DB6E9C27-F929-4986-A1C3-ED2F1F252EC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeBank.Wpf", "TimeBank.Wpf\TimeBank.Wpf.csproj", "{E4CBA84A-CD3A-4257-AABD-F6F7DB95A21A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeBank.Wpf", "TimeBank.Wpf\TimeBank.Wpf.csproj", "{E4CBA84A-CD3A-4257-AABD-F6F7DB95A21A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{55F60525-929C-4604-AA94-BBA4D42442EB}"
 	ProjectSection(SolutionItems) = preProject
 		E:\Documentos\p6_.NET\boton_cuenta.png = E:\Documentos\p6_.NET\boton_cuenta.png
 		E:\Documentos\p6_.NET\boton_cuenta_verde-01.png = E:\Documentos\p6_.NET\boton_cuenta_verde-01.png
+		E:\DAM-UOC\Proyectos\g136.jpg = E:\DAM-UOC\Proyectos\g136.jpg
 		E:\Documentos\p6_.NET\home_green-01.png = E:\Documentos\p6_.NET\home_green-01.png
 		E:\Documentos\p6_.NET\home_white-01.png = E:\Documentos\p6_.NET\home_white-01.png
 	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TimeBank_Setup", "TimeBank_Setup\TimeBank_Setup.vdproj", "{23AE37BF-BB50-4425-B024-C3AEF724D232}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +44,8 @@ Global
 		{E4CBA84A-CD3A-4257-AABD-F6F7DB95A21A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4CBA84A-CD3A-4257-AABD-F6F7DB95A21A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4CBA84A-CD3A-4257-AABD-F6F7DB95A21A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23AE37BF-BB50-4425-B024-C3AEF724D232}.Debug|Any CPU.ActiveCfg = Debug
+		{23AE37BF-BB50-4425-B024-C3AEF724D232}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -12,7 +12,7 @@ namespace TimeBank.Bussines.Utilities
         {
             try
             {
-                int dataInt = int.Parse(insertData);
+                long dataInt = long.Parse(insertData);
                 return true;
             }
             catch (Exception)

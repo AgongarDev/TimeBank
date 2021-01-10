@@ -4,6 +4,11 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <StartupObject>TimeBank.Wpf.App</StartupObject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath></OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,14 +17,42 @@
     <None Remove="boton_cuenta_verde-01.png" />
     <None Remove="home_green-01.png" />
     <None Remove="home_white-01.png" />
+    <None Remove="img000186.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="70512590_10157366852481768_702672983386226688_n.jpg" />
+    <ProjectReference Include="..\TimeBank.Bussines\TimeBank.Bussines.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="boton_cuenta.png" />
     <Resource Include="boton_cuenta_verde-01.png" />
     <Resource Include="home_green-01.png" />
     <Resource Include="home_white-01.png" />
+    <Resource Include="img000186.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\User_Resumen_View.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\User_ValidarServicios.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\User_ofertarServicio_View.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\User_Resumen_View.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\User_ValidarServicios.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 
 </Project>

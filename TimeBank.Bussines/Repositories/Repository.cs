@@ -145,7 +145,27 @@ namespace TimeBank.Bussines.Repositories
         internal User GetUser(long id)
         {
             using var db = new TimeBankContext();
-            return (from u in db.Users where u.UserId == id select u).FirstOrDefault();
+            try
+            {
+                return (from u in db.Users where u.UserId == id select u).First();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+        internal User GetUser(string name)
+        {
+            using var db = new TimeBankContext();
+            try
+            {
+                return (from u in db.Users where u.Name == name select u).First();
+            }
+            catch
+            {
+                return null;
+            }
         }
         #endregion
 

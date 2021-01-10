@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TimeBank.Core.Models
 {
@@ -17,6 +18,9 @@ namespace TimeBank.Core.Models
         
         public Validation Validation { get; set; }
         public List<Token> Price { get; set; }
+
+        public DateTime DateIni { get; set; } 
+        public DateTime DateEnd { get; set; }
 
         public override string ToString()
         {

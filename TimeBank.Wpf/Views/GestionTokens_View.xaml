@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="TimeBank.Wpf.Views.GestionTokens_View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TimeBank.Wpf.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" Width="885">
+    <Grid x:Name="Frm_datosUser" Background="#FF79A386" Visibility="Visible" Margin="196,0,0,0" Height="414" VerticalAlignment="Center" HorizontalAlignment="Left" Width="673">
+        <Grid x:Name="Menu_AdminTokens" Margin="-228,0,713,1" Visibility="Visible" Background="#FF55745E">
+            <Button Content="EXPORTAR A XML" HorizontalAlignment="Center" VerticalAlignment="Top" Height="35" Width="168" FontFamily="Noto Sans" Foreground="#FF79A386" BorderBrush="#FF79A386" Background="White" Margin="0,269,0,0" Click="Btn_Exportar_Click"/>
+            <Button Content="IMPORTAR" HorizontalAlignment="Center" VerticalAlignment="Top" Height="35" Width="168" FontFamily="Noto Sans" Foreground="#FF79A386" BorderBrush="#FF79A386" Background="White" Margin="0,318,0,0" Click="Btn_Importar_Click"/>
+            <Button Content="CREAR" HorizontalAlignment="Center" VerticalAlignment="Top" Height="35" Width="168" FontFamily="Noto Sans" Foreground="#FF79A386" BorderBrush="#FF79A386" Background="White"  Margin="0,15,0,0" Click="Btn_Crear_Click"/>
+            <Button Content="MODIFICAR" HorizontalAlignment="Center" VerticalAlignment="Top" Height="34" Width="168" FontFamily="Noto Sans" Foreground="#FF79A386" BorderBrush="#FF79A386" Background="White" Margin="0,65,0,0" Click="Btn_Modificar_Click"/>
+            <Button Content="BORRAR" HorizontalAlignment="Center" VerticalAlignment="Top" Height="34" Width="168" FontFamily="Noto Sans" Foreground="#FF79A386" BorderBrush="#FF79A386" Background="White" Margin="0,114,0,0" Click="Btn_Borrar_Click"/>
+        </Grid><Grid x:Name="Frm_listadoUsers" HorizontalAlignment="Center" Height="404" Width="663" VerticalAlignment="Top"  Background="#FF79A386" Visibility="Visible" Margin="0,10,0,0">
+            <TextBlock HorizontalAlignment="Right" Margin="0,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" FontFamily="Carmilla" FontSize="20" Height="33" Foreground="White" Background="{x:Null}" TextAlignment="Right" RenderTransformOrigin="0.493,0.49"><Run Language="es-es" Text="Gestión de Tokens"/><LineBreak/><Run Language="es-es"/></TextBlock>
+            <DataGrid x:Name="db_tokens" Margin="10,148,139,10"/>
+            <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="29,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" FontFamily="Noto Sans" FontSize="16" Foreground="White" Background="{x:Null}"><Run Language="es-es" Text="Horas"/></TextBlock>
+            <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="10,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" FontFamily="Noto Sans" FontSize="16" Foreground="White" Background="{x:Null}" Text="Nombre" />
+            <TextBox x:Name="Txt_Horas" HorizontalAlignment="Left" Style="{DynamicResource roundTxtBox}" Height="24" VerticalAlignment="Top" Width="79" Margin="113,68,0,0">
+                <TextBox.ToolTip>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White"/>
+                        <GradientStop Color="#FFEEEEEE" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.ToolTip>
+            </TextBox>
+            <TextBox x:Name="Txt_Name" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Style="{DynamicResource roundTxtBox}" Width="127" Margin="113,26,0,0">
+                <TextBox.ToolTip>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White"/>
+                        <GradientStop Color="#FFEEEEEE" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.ToolTip>
+            </TextBox>
+            <Button x:Name="Btn_ValidarUser" Content="Validar" HorizontalAlignment="Left" Margin="410,68,0,292" Width="114" Background="#FFF7F7F7" BorderBrush="{x:Null}" Foreground="#FF79A386" FontFamily="Noto Sans" FontSize="16" Click="ButtonValidarUser_Click"/>
+            <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="29,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" FontFamily="Noto Sans" FontSize="16" Foreground="White" Background="{x:Null}"><Run Language="es-es" Text="ID"/></TextBlock>
+            <TextBox x:Name="Txt_Id" HorizontalAlignment="Left" Style="{DynamicResource roundTxtBox}" Height="24" VerticalAlignment="Top" Width="79" Margin="113,111,0,0">
+                <TextBox.ToolTip>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White"/>
+                        <GradientStop Color="#FFEEEEEE" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.ToolTip>
+            </TextBox>
+        </Grid>
+        <Grid x:Name="Frm_listadoUsers_Copy" HorizontalAlignment="Left" Height="404" Width="663" VerticalAlignment="Top"  Background="#FF79A386" Margin="10,10,0,0" Visibility="Visible">
+            <TextBlock x:Name="Txt_Title" HorizontalAlignment="Right" Margin="0,10,10,0" Text="Listado de usuarios" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" FontFamily="Carmilla" FontSize="20" Height="33" Foreground="White" Background="{x:Null}" TextAlignment="Right" RenderTransformOrigin="0.493,0.49"/>
+            <Button x:Name="Btn_ValidarUser_Copy1" Content="Importar" HorizontalAlignment="Left" Margin="505,350,0,10" Width="114" Background="#FFF7F7F7" BorderBrush="{x:Null}" Foreground="#FF79A386" FontFamily="Noto Sans" FontSize="16" Click="ButtonValidarUser_Click"/>
+            <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="59,212,0,0" Text="Dirección" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" FontFamily="Noto Sans" FontSize="16" Foreground="White" Background="{x:Null}"/>
+            <TextBox x:Name="Txt_Address_Copy" HorizontalAlignment="Left" Height="24" Style="{DynamicResource roundTxtBox}" VerticalAlignment="Top" Width="466" Margin="151,208,0,0">
+                <TextBox.ToolTip>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White"/>
+                        <GradientStop Color="#FFEEEEEE" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.ToolTip>
+            </TextBox>
+        </Grid>
+        
+    </Grid>
+</UserControl>

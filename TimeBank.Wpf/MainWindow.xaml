@@ -7,31 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock x:Name="TiltleApp" HorizontalAlignment="Center" Margin="0,10,0,0" Text="Bank of Time" Foreground="#98C4A4" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="{DynamicResource TextBlockFontFamily1}" Height="75" Width="226" FontSize="60
+        <TextBlock x:Name="TiltleApp" HorizontalAlignment="Center" Margin="0,18,0,0" Text="Bank of Time" Foreground="#98C4A4" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="{DynamicResource TextBlockFontFamily1}" Height="76" Width="370" FontSize="60
                    "/>
         <Image Height="58" Margin="702,27,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="58" Source="/boton_cuenta.png"/>
         <Rectangle HorizontalAlignment="Left" Height="4" Margin="10,19,0,0"  VerticalAlignment="Top" Width="435" Fill="#FF98C4A4"/>
         <Rectangle HorizontalAlignment="Left" Height="4" Margin="383,81,0,0"  VerticalAlignment="Top" Width="435" Fill="#FF98C4A4"/>
-        <TextBox HorizontalAlignment="Left" Height="46" Margin="91,108,0,0" Text="Una aplicación para crear comunidades basadas en la economía colaborativa" TextWrapping="Wrap" VerticalAlignment="Top" Width="640" FontFamily="Noto Sans" Foreground="#FF79A386" TextAlignment="Center" BorderBrush="{x:Null}"/>
-        <TextBox HorizontalAlignment="Left" Margin="319,176,0,0" Text="Usuario" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" BorderBrush="{x:Null}"/>
-        <TextBox HorizontalAlignment="Left" Margin="319,253,0,0" Text="Administrador" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" BorderBrush="{x:Null}"/>
-        <Rectangle HorizontalAlignment="Left" Height="24" Stroke="WhiteSmoke" VerticalAlignment="Top" Width="148" RadiusX="5" RadiusY="5" Margin="319,204,0,0">
-            <Rectangle.Fill>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="91,108,0,0" Text="Una aplicación para crear comunidades basadas en la economía colaborativa" TextWrapping="Wrap" VerticalAlignment="Top" Width="640" FontFamily="Noto Sans" Foreground="#FF79A386" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="319,176,0,0" Text="Usuario" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386"/>
+        <Button Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Width="66" FontFamily="Noto Sans" Foreground="#FF79A386" BorderBrush="#FF2C9658" Background="White" Click="Button_Click" Margin="360,264,0,0"/>
+        <TextBox x:Name="Txt_UserId" Style="{DynamicResource roundTxtBox}" HorizontalAlignment="Left" Margin="320,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="146" Foreground="Black" BorderBrush="{x:Null}" Height="24" KeyDown="Txt_UserId_KeyDown">
+            <TextBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="White"/>
                     <GradientStop Color="#FFEEEEEE" Offset="1"/>
                 </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="24" Margin="319,283,0,0" Stroke="WhiteSmoke" VerticalAlignment="Top" Width="148" RadiusX="5" RadiusY="5">
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="White"/>
-                    <GradientStop Color="#FFEEEEEE" Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Button Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Width="65" FontFamily="Noto Sans" Foreground="#FF79A386" BorderBrush="#FF2C9658" Background="White" Click="Button_Click" Margin="358,331,0,0"/>
+            </TextBox.Background>
+        </TextBox>
 
 
 

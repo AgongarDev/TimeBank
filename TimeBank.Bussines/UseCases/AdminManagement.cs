@@ -10,6 +10,8 @@ namespace TimeBank.Bussines.UseCases
 {
     public class AdminManagement
     {
+        public Actions Orden { get; set; }
+
         private static AdminManagement INSTANCE;
         private static Repository _repo;
 
@@ -34,12 +36,14 @@ namespace TimeBank.Bussines.UseCases
             return _repo.GetAllServices();
         }
 
-        public void RemoveToken(Token token)
+        public bool RemoveToken(Token token)
         {
             if (RemovableToken(token))
             {
                 _repo.RemoveToken(token);
+                return true;
             }
+            return false;
         }
 
         private bool RemovableToken(Token token)
@@ -103,7 +107,7 @@ namespace TimeBank.Bussines.UseCases
             return Enum.GetValues(typeof(PaymentType)).Cast<PaymentType>();
         }
 
-        public void NewPayment(User user, Service service, int p)
+        public void NewPayment(User user, Service service, PaymentType p)
         {
             int diff = GetUserEnoughFounds(user.Wallet, service.Price);
             if (diff < 0)
@@ -120,7 +124,7 @@ namespace TimeBank.Bussines.UseCases
                 User = user,
                 ValidationId = service.Validation.ID,
                 Validation = service.Validation,
-                PaymentType = (PaymentType)p
+                PaymentType = p
             };
 
             int price = CommonLib.TokenListToHours(service.Price);

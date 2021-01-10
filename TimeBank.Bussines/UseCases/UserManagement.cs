@@ -12,6 +12,8 @@ namespace TimeBank.Bussines.UseCases
         
         private Repository _repo;
 
+        public User CurrentUser { get; set; }
+
         private UserManagement()
         {
             _repo = new Repository();
@@ -33,6 +35,22 @@ namespace TimeBank.Bussines.UseCases
             }
             _repo.InsertOrUpdate(user);
             return true;
+        }
+        public User GetUserAccess(object id)
+        {
+            if (id.GetType().Equals(typeof(String)))
+            {
+                return GetUser((string)id);
+            } 
+            else
+            {
+                return GetUser((long)id);
+            }
+        }
+
+        public User GetUser(string userName)
+        {
+            return _repo.GetUser(userName);
         }
 
         public User GetUser(long userID)
