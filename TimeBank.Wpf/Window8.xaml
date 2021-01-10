@@ -1,0 +1,73 @@
+﻿<Window x:Class="TimeBank.Wpf.Window8"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TimeBank.Wpf"
+        mc:Ignorable="d"
+        Title="Window8" Height="450" Width="800">
+    <Grid>
+        <Rectangle HorizontalAlignment="Left" Height="87" VerticalAlignment="Top" Width="803" Fill="#FF79A386" Margin="0,1,0,0"/>
+        <TextBlock x:Name="TiltleApp" HorizontalAlignment="Center" Margin="0,10,0,0" Text="Bank of Time" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="{DynamicResource TextBlockFontFamily1}" Height="75" Width="226" FontSize="60
+                   "/>
+        <Image Height="44" Margin="702,27,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="44" Source="/boton_cuenta.png"/>
+        <TextBox HorizontalAlignment="Left" Margin="342,103,0,0" Text="Ofertar Servicio" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" FontFamily="Carmilla" FontSize="30" Height="46" Foreground="#FF79A386" BorderBrush="{x:Null}"/>
+        <Rectangle HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="812" Fill="#FF79A386" Margin="0,379,0,0"/>
+        <Image Height="61" Margin="25,15,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="61" Source="/home_white-01.png"/>
+        <TextBox HorizontalAlignment="Left" Margin="132,161,0,0" Text="id" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" BorderBrush="{x:Null}" Background="{x:Null}"/>
+        <Rectangle HorizontalAlignment="Left" Height="24" Stroke="WhiteSmoke" VerticalAlignment="Top" Width="148" RadiusX="5" RadiusY="5" Margin="132,190,0,0">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="#FFEEEEEE" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBox HorizontalAlignment="Left" Margin="132,228,0,0" Text="tipo de servicio" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" BorderBrush="{x:Null}" Background="{x:Null}"/>
+        <Rectangle HorizontalAlignment="Left" Height="24" Stroke="WhiteSmoke" VerticalAlignment="Top" Width="148" RadiusX="5" RadiusY="5" Margin="132,257,0,0">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="#FFEEEEEE" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBox HorizontalAlignment="Left" Margin="332,161,0,0" Text="Fecha inicio" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" BorderBrush="{x:Null}" Background="{x:Null}" TextChanged="TextBox_TextChanged"/>
+        <Rectangle HorizontalAlignment="Left" Height="24" Stroke="WhiteSmoke" VerticalAlignment="Top" Width="148" RadiusX="5" RadiusY="5" Margin="332,190,0,0">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="#FFEEEEEE" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBox HorizontalAlignment="Left" Margin="332,228,0,0" Text="Descripción" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" BorderBrush="{x:Null}" Background="{x:Null}"/>
+        <Rectangle HorizontalAlignment="Left" Height="24" Stroke="WhiteSmoke" VerticalAlignment="Top" Width="148" RadiusX="5" RadiusY="5" Margin="332,257,0,0">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="#FFEEEEEE" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button Content="Ofertar" HorizontalAlignment="Left" Height="49" Margin="339,304,0,0" VerticalAlignment="Top" Width="144" Background="#FFA5DAC9" BorderBrush="{x:Null}" Foreground="White" FontFamily="Noto Sans" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Margin="523,161,0,0" Text="Fecha fin" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" BorderBrush="{x:Null}" Background="{x:Null}" TextChanged="TextBox_TextChanged"/>
+        <Rectangle HorizontalAlignment="Left" Height="24" Stroke="WhiteSmoke" VerticalAlignment="Top" Width="148" RadiusX="5" RadiusY="5" Margin="523,190,0,0">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="#FFEEEEEE" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBox HorizontalAlignment="Left" Margin="523,228,0,0" Text="Precio Tokens" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" BorderBrush="{x:Null}" Background="{x:Null}" TextChanged="TextBox_TextChanged_1"/>
+        <Rectangle HorizontalAlignment="Left" Height="24" Stroke="WhiteSmoke" VerticalAlignment="Top" Width="148" RadiusX="5" RadiusY="5" Margin="523,257,0,0">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="#FFEEEEEE" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+</Window>
