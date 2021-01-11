@@ -16,6 +16,7 @@
   <ItemGroup>
     <Folder Include="IUseCases\" />
     <Folder Include="IRepository\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <ItemGroup>

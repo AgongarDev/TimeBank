@@ -10,7 +10,7 @@ using TimeBank.Core.DataAccess;
 namespace TimeBank.Core.Migrations
 {
     [DbContext(typeof(TimeBankContext))]
-    [Migration("20210110153122_v1")]
+    [Migration("20210110233107_v1")]
     partial class v1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -19,7 +19,7 @@ namespace TimeBank.Core.Migrations
             modelBuilder
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.1");
+                .HasAnnotation("ProductVersion", "5.0.0");
 
             modelBuilder.Entity("TimeBank.Core.Models.Address", b =>
                 {
@@ -165,10 +165,10 @@ namespace TimeBank.Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateEnd")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("DateTime2");
 
                     b.Property<DateTime>("DateIni")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("DateTime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");

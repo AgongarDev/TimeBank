@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TimeBank.Core.Migrations
 {
-    public partial class initial : Migration
+    public partial class v1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -39,7 +39,7 @@ namespace TimeBank.Core.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "Users",
                 columns: table => new
                 {
                     UserId = table.Column<long>(type: "bigint", nullable: false)
@@ -55,13 +55,13 @@ namespace TimeBank.Core.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.UserId);
+                    table.PrimaryKey("PK_Users", x => x.UserId);
                     table.ForeignKey(
-                        name: "FK_User_Addresses_AddressId",
+                        name: "FK_Users_Addresses_AddressId",
                         column: x => x.AddressId,
                         principalTable: "Addresses",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -74,7 +74,9 @@ namespace TimeBank.Core.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Available = table.Column<bool>(type: "bit", nullable: false),
                     CategoryID = table.Column<int>(type: "int", nullable: false),
-                    ProviderID = table.Column<long>(type: "bigint", nullable: false)
+                    ProviderID = table.Column<long>(type: "bigint", nullable: false),
+                    DateIni = table.Column<DateTime>(type: "DateTime2", nullable: false),
+                    DateEnd = table.Column<DateTime>(type: "DateTime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -86,9 +88,9 @@ namespace TimeBank.Core.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Services_User_ProviderID",
+                        name: "FK_Services_Users_ProviderID",
                         column: x => x.ProviderID,
-                        principalTable: "User",
+                        principalTable: "Users",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -107,11 +109,11 @@ namespace TimeBank.Core.Migrations
                 {
                     table.PrimaryKey("PK_Wallets", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Wallets_User_TBankUserID",
+                        name: "FK_Wallets_Users_TBankUserID",
                         column: x => x.TBankUserID,
-                        principalTable: "User",
+                        principalTable: "Users",
                         principalColumn: "UserId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -136,15 +138,14 @@ namespace TimeBank.Core.Migrations
                         principalColumn: "ServiceID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Validations_User_TBankUserID",
+                        name: "FK_Validations_Users_TBankUserID",
                         column: x => x.TBankUserID,
-                        principalTable: "User",
-                        principalColumn: "UserId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalTable: "Users",
+                        principalColumn: "UserId");
                 });
 
             migrationBuilder.CreateTable(
-                name: "Token",
+                name: "Tokens",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
@@ -157,21 +158,21 @@ namespace TimeBank.Core.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Token", x => x.ID);
+                    table.PrimaryKey("PK_Tokens", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Token_Services_ServiceID",
+                        name: "FK_Tokens_Services_ServiceID",
                         column: x => x.ServiceID,
                         principalTable: "Services",
                         principalColumn: "ServiceID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Token_Wallets_WalletID",
+                        name: "FK_Tokens_Wallets_WalletID",
                         column: x => x.WalletID,
                         principalTable: "Wallets",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Token_Wallets_WalletID1",
+                        name: "FK_Tokens_Wallets_WalletID1",
                         column: x => x.WalletID1,
                         principalTable: "Wallets",
                         principalColumn: "ID",
@@ -221,17 +222,16 @@ namespace TimeBank.Core.Migrations
                 {
                     table.PrimaryKey("PK_Payments", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Payments_User_TBankUserID",
+                        name: "FK_Payments_Users_TBankUserID",
                         column: x => x.TBankUserID,
-                        principalTable: "User",
+                        principalTable: "Users",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Payments_Validations_ValidationId",
                         column: x => x.ValidationId,
                         principalTable: "Validations",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -255,11 +255,10 @@ namespace TimeBank.Core.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Comments_User_UserId",
+                        name: "FK_Comments_Users_UserId",
                         column: x => x.UserId,
-                        principalTable: "User",
-                        principalColumn: "UserId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalTable: "Users",
+                        principalColumn: "UserId");
                 });
 
             migrationBuilder.CreateIndex(
@@ -304,23 +303,23 @@ namespace TimeBank.Core.Migrations
                 column: "ProviderID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Token_ServiceID",
-                table: "Token",
+                name: "IX_Tokens_ServiceID",
+                table: "Tokens",
                 column: "ServiceID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Token_WalletID",
-                table: "Token",
+                name: "IX_Tokens_WalletID",
+                table: "Tokens",
                 column: "WalletID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Token_WalletID1",
-                table: "Token",
+                name: "IX_Tokens_WalletID1",
+                table: "Tokens",
                 column: "WalletID1");
 
             migrationBuilder.CreateIndex(
-                name: "IX_User_AddressId",
-                table: "User",
+                name: "IX_Users_AddressId",
+                table: "Users",
                 column: "AddressId",
                 unique: true);
 
@@ -351,7 +350,7 @@ namespace TimeBank.Core.Migrations
                 name: "Payments");
 
             migrationBuilder.DropTable(
-                name: "Token");
+                name: "Tokens");
 
             migrationBuilder.DropTable(
                 name: "Incidences");
@@ -369,7 +368,7 @@ namespace TimeBank.Core.Migrations
                 name: "Categories");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Addresses");

@@ -17,6 +17,9 @@
         <DataTemplate x:Name="gestionToken" DataType="{x:Type viewmodels:GestionTokens_ViewModel}">
             <views:GestionTokens_View DataContext="{Binding}"/>
         </DataTemplate>
+        <DataTemplate x:Name="gestionServicios" DataType="{x:Type viewmodels:GestionServicios_ViewModel}">
+            <views:GestionTokens_View DataContext="{Binding}"/>
+        </DataTemplate>
     </Window.Resources>
     <Grid Margin="0,0,0,3" Background="#FF79A386">
         <Grid.ColumnDefinitions>
@@ -34,7 +37,7 @@
 
         </Grid>
         <Button x:Name="Gestión_Usuarios" Content="USUARIOS" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="151" FontFamily="Noto Sans" Foreground="#FFF7F7F7" BorderBrush="White" Background="#FF79A386" Margin="236,90,0,0" Click="Btn_GestiónUsuarios_Click" />
-        <Button x:Name="Gestión_Usuarios_Copy" Content="SERVICIOS" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="151" FontFamily="Noto Sans" Foreground="#FFF7F7F7" BorderBrush="White" Background="#FF79A386" Margin="392,90,0,0"/>
+        <Button x:Name="Gestión_Usuarios_Copy" Content="SERVICIOS" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="151" FontFamily="Noto Sans" Foreground="#FFF7F7F7" BorderBrush="White" Background="#FF79A386" Margin="392,90,0,0" Click="Gestión_Usuarios_Copy_Click"/>
         <Button x:Name="Gestión_Usuarios_Copy1" Content="TOKENS" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="151" FontFamily="Noto Sans" Foreground="#FFF7F7F7" BorderBrush="White" Background="#FF79A386" Margin="548,90,0,0" Click="Btn_GestionTokens_Click"/>
     </Grid>
 </Window>

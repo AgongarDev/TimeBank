@@ -64,6 +64,19 @@ namespace TimeBank.Bussines.UseCases
             return _repo.GetAllServices(cat);
         }
 
+        public bool InsertOrUpdate(Category cat)
+        {
+            try
+            {
+                _repo.InsertOrUpdate(cat);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
         public bool InsertOrUpdate(Token token)
         {
             try

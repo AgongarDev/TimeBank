@@ -251,7 +251,6 @@ namespace TimeBank.Bussines.Repositories
             else
             {
                 query.Name = cat.Name;
-                query.Services = cat.Services ?? new List<Service>();
             }
             await db.SaveChangesAsync();
         }
