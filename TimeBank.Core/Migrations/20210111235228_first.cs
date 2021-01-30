@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TimeBank.Core.Migrations
 {
-    public partial class v1 : Migration
+    public partial class first : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -259,6 +259,18 @@ namespace TimeBank.Core.Migrations
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "UserId");
+                });
+
+            migrationBuilder.InsertData(
+                table: "Tokens",
+                columns: new[] { "ID", "Hours", "Name", "ServiceID", "WalletID", "WalletID1" },
+                values: new object[,]
+                {
+                    { 1, 1, "Basic_1", null, null, null },
+                    { 2, 2, "Basic_2", null, null, null },
+                    { 5, 5, "Cobre_5", null, null, null },
+                    { 10, 10, "Sylver_10", null, null, null },
+                    { 20, 20, "Gold_20", null, null, null }
                 });
 
             migrationBuilder.CreateIndex(

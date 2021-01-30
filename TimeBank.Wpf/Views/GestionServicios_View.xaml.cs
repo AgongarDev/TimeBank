@@ -49,7 +49,8 @@ namespace TimeBank.Wpf.Views
 
         private void Btn_nuevaCat_Click(object sender, RoutedEventArgs e)
         {
-            ValidateEntranceCat();
+            if (!ValidateEntranceCat()) return;
+
             var existst = admin.GetCategory(Txt_NombreCat.Text);
             if (existst != null)
             {
@@ -60,6 +61,20 @@ namespace TimeBank.Wpf.Views
             {
                 Name = Txt_NombreCat.Text
             });
+            ShowCategories();
+        }
+
+        private void ShowCategories()
+        {
+            List<Category> cats = null;
+
+            cats = admin.GetCategories();
+            ObservableCollection<Category> tbcats = new ObservableCollection<Category>();
+            foreach (Category cate in cats)
+            {
+                tbcats.Add(cate);
+            }
+            Db_Categoria.ItemsSource = tbcats;
         }
 
         private void Btn_modifyCat_Click(object sender, RoutedEventArgs e)
@@ -74,16 +89,25 @@ namespace TimeBank.Wpf.Views
             {
                 Name = Txt_NombreCat.Text
             });
+
+            ShowCategories();
         }    
         
         private void Btn_Eliminar_Click(object sender, RoutedEventArgs e)
         {
-            var existst = admin.GetCategory(Txt_NombreCat.Text);
-            if (existst == null)
+            var exist = admin.GetCategory(Txt_NombreCat.Text);
+            if (exist == null)
             {
                 return;
             }
-            return; // Todo
+            try
+            {
+                admin.RemoveCategory(exist);
+            }
+            catch
+            {
+                MessageBox.Show("No se puede eliminar la categoría");
+            }
         }
 
         private bool ValidateEntranceCat()

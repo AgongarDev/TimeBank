@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TimeBank.Wpf.Views"
              xmlns:ViewModels="clr-namespace:TimeBank.Wpf.ViewModels" x:Class="TimeBank.Wpf.Views.GestionUser_View"
              mc:Ignorable="d" Height="419" Width="872">
-    <Grid x:Name="Frm_datosUser" Background="#FF79A386" Visibility="Visible" Margin="196,0,0,0" Height="414" VerticalAlignment="Center" HorizontalAlignment="Left" Width="673">
+    <Grid x:Name="Frm_datosUser" Background="#FF75A375" Visibility="Visible" Margin="196,0,0,0" Height="414" VerticalAlignment="Center" HorizontalAlignment="Left" Width="673">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>

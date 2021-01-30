@@ -10,8 +10,8 @@ using TimeBank.Core.DataAccess;
 namespace TimeBank.Core.Migrations
 {
     [DbContext(typeof(TimeBankContext))]
-    [Migration("20210110233107_v1")]
-    partial class v1
+    [Migration("20210111235228_first")]
+    partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -219,6 +219,38 @@ namespace TimeBank.Core.Migrations
                     b.HasIndex("WalletID1");
 
                     b.ToTable("Tokens");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Hours = 1,
+                            Name = "Basic_1"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            Hours = 2,
+                            Name = "Basic_2"
+                        },
+                        new
+                        {
+                            ID = 5,
+                            Hours = 5,
+                            Name = "Cobre_5"
+                        },
+                        new
+                        {
+                            ID = 10,
+                            Hours = 10,
+                            Name = "Sylver_10"
+                        },
+                        new
+                        {
+                            ID = 20,
+                            Hours = 20,
+                            Name = "Gold_20"
+                        });
                 });
 
             modelBuilder.Entity("TimeBank.Core.Models.User", b =>
@@ -372,7 +404,7 @@ namespace TimeBank.Core.Migrations
             modelBuilder.Entity("TimeBank.Core.Models.Service", b =>
                 {
                     b.HasOne("TimeBank.Core.Models.Category", "Category")
-                        .WithMany("Services")
+                        .WithMany()
                         .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -447,11 +479,6 @@ namespace TimeBank.Core.Migrations
             modelBuilder.Entity("TimeBank.Core.Models.Address", b =>
                 {
                     b.Navigation("user");
-                });
-
-            modelBuilder.Entity("TimeBank.Core.Models.Category", b =>
-                {
-                    b.Navigation("Services");
                 });
 
             modelBuilder.Entity("TimeBank.Core.Models.Incidence", b =>

@@ -33,7 +33,14 @@ namespace TimeBank.Bussines.UseCases
             {
                 user.Validations = new List<Validation>();
             }
-            _repo.InsertOrUpdate(user);
+            try
+            {
+                _repo.InsertOrUpdate(user);
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
             return true;
         }
         public User GetUserAccess(object id)

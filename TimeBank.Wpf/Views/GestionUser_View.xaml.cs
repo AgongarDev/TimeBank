@@ -49,6 +49,7 @@ namespace TimeBank.Wpf.Views
             }
 
             User u = new User();
+                u.UserId = long.Parse(Txt_UserID.Text);
                 u.Name = Txt_UserName.Text;
                 u.LastName = Txt_UserLastName.Text;
                 u.Address.Street = Txt_Address.Text;
@@ -75,6 +76,8 @@ namespace TimeBank.Wpf.Views
                     return false;
                 }
             }
+            if (!CommonLib.ValidateNumEntrance(Txt_UserID.Text)) return false;
+
             return true;
         }
 

@@ -36,7 +36,7 @@
                     <Image Height="44" VerticalAlignment="Top" HorizontalAlignment="Left" Width="44" Source="/boton_cuenta.png"/>
                 </StackPanel>
             </Button>
-            <Button Margin="0,0,911,0" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="{x:Null}">
+            <Button Margin="0,0,911,0" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="{x:Null}" Click="BtnHome_Click">
                 <StackPanel>
                     <Image Height="61" VerticalAlignment="Top" HorizontalAlignment="Left" Width="61" Source="/home_white-01.png"/>
                 </StackPanel>

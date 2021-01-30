@@ -5,6 +5,7 @@ using TimeBank.Core.DataAccess;
 using TimeBank.Core.Models;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace TimeBank.Bussines.Repositories
 {
@@ -19,7 +20,7 @@ namespace TimeBank.Bussines.Repositories
         internal Service GetService(long serviceID)
         {
             using var db = new TimeBankContext();
-            return db.Services.FirstOrDefault(s => s.ServiceID == serviceID);
+            return db.Services.FirstOrDefault(p => p.ServiceID == serviceID);
         }
         internal List<Service> GetAllServices(Category cat)
         {
@@ -89,6 +90,7 @@ namespace TimeBank.Bussines.Repositories
             using var db = new TimeBankContext();
             return (from val in db.Validations where val.User == user select val).ToList();
         }
+
         internal List<Validation> GetPendingValidations(Service service)
         {
             using var db = new TimeBankContext();
@@ -104,38 +106,51 @@ namespace TimeBank.Bussines.Repositories
         #region Users
         internal async void InsertOrUpdate(User user)
         {
-            await using var db = new TimeBankContext();
-            var query = (from u in db.Users where u.UserId == user.UserId select u).FirstOrDefault();
-            if (query == null)
+            await using (var db = new TimeBankContext())
             {
-                db.Users.Add(user);
-            }
-            else
-            {
-                query.Address = user.Address ?? new Address();
-                query.AddressId = user.AddressId;
-                query.Admin = user.Admin;
-                query.Comments = user.Comments ?? new List<Comment>();
-                query.InDate = user.InDate;
-                query.LastName = user.LastName;
-                query.Name = user.Name;
-                query.OutDate = user.OutDate;
-                query.Password = user.Password;
-                query.Payments = user.Payments ?? new List<Payment>();
-                query.ProvideServices = user.ProvideServices;
-                query.Rating = user.Rating;
-                query.UserId = user.UserId;
-                query.Validations = user.Validations ?? new List<Validation>();
-                query.Wallet = user.Wallet ?? new Wallet();
 
+                var query = (from u in db.Users where u.UserId == user.UserId select u).FirstOrDefault();
+                if (query == null)
+                {
+                    db.Users.Add(user);
+                }
+                else
+                {
+                    query.Address = user.Address ?? new Address();
+                    query.AddressId = user.AddressId;
+                    query.Admin = user.Admin;
+                    query.Comments = user.Comments ?? new List<Comment>();
+                    query.InDate = user.InDate;
+                    query.LastName = user.LastName;
+                    query.Name = user.Name;
+                    query.OutDate = user.OutDate;
+                    query.Password = user.Password;
+                    query.Payments = user.Payments ?? new List<Payment>();
+                    query.ProvideServices = user.ProvideServices;
+                    query.Rating = user.Rating;
+                    query.UserId = user.UserId;
+                    query.Validations = user.Validations ?? new List<Validation>();
+                    query.Wallet = user.Wallet ?? new Wallet();
+
+                }
+                db.Database.OpenConnection();
+                try
+                {
+                    db.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Users ON");
+                    await db.SaveChangesAsync();
+                    db.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Users OFF");
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
-            await db.SaveChangesAsync();
         }
         internal async void RemoveUser(User user)
         {
             await using var db = new TimeBankContext();
             db.Users.Remove(user);
-            await db.SaveChangesAsync();
+            db.SaveChanges();
         }
         internal List<User> GetUsers()
         {
@@ -193,7 +208,7 @@ namespace TimeBank.Bussines.Repositories
         internal List<Token> GetTokensList()
         {
             using var db = new TimeBankContext();
-            return (from token in db.Tokens select token).OrderByDescending(x=> x.Hours).ToList();
+            return (from token in db.Tokens select token).OrderByDescending(x => x.Hours).ToList();
         }
         internal async void RemoveToken(Token token)
         {
@@ -244,6 +259,7 @@ namespace TimeBank.Bussines.Repositories
         {
             await using var db = new TimeBankContext();
             var query = (from c in db.Categories where c.ID == cat.ID select c).FirstOrDefault();
+            
             if (query == null)
             {
                 db.Categories.Add(cat);
@@ -252,6 +268,12 @@ namespace TimeBank.Bussines.Repositories
             {
                 query.Name = cat.Name;
             }
+            await db.SaveChangesAsync();
+        }
+        internal async void RemoveCategory(Category cat)
+        {
+            using var db = new TimeBankContext();
+            db.Categories.Remove(cat);
             await db.SaveChangesAsync();
         }
         #endregion

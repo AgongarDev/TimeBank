@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TimeBank.Wpf.Views"
              mc:Ignorable="d" Width="826" Height="416">
-    <Grid Margin="0,0,21,56" Background="White">
+    <Grid x:Name="grid_lista" Margin="0,0,21,56" Background="White">
         <Button x:Name="Gestión_Usuarios_Copy1" Content="BUSCAR" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="72" FontFamily="Noto Sans" Foreground="#FFF7F7F7" BorderBrush="White" Background="#FF79A386" Margin="723,9,0,0"/>
         <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="98,10,0,0" Text="Nombre" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"/>
         <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="22" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}" ><Run Language="es-es" Text="ID"/></TextBlock>
@@ -27,19 +27,29 @@
         </TextBox>
         <TextBlock TextAlignment="Right" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="74" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Language="es-es" Text="Categoría"/></TextBlock>
         <ComboBox HorizontalAlignment="Left" Margin="464,10,0,0" VerticalAlignment="Top" Width="196" Background="White" BorderBrush="White"/>
-        <DataGrid x:Name="Dg_userServices" Margin="0,49,10,0"/>
-        <Grid Background="White" d:IsHidden="True">
+        <DataGrid x:Name="Dg_userServices" Margin="0,49,10,0" MouseDoubleClick="Dg_userServices_MouseDoubleClick"/>
+        <Grid x:Name="grid_validar" Background="White" d:IsHidden="True">
             <TextBlock TextAlignment="Center" HorizontalAlignment="Center" Margin="0,70,0,0" Text="Nombre" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"/>
             <TextBlock TextAlignment="Center" HorizontalAlignment="Center" Margin="0,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" FontFamily="Carmilla" FontSize="30" Height="35" Foreground="#FF79A386"><Run Language="es-es" Text="Validar Servicio"/></TextBlock>
             <TextBlock TextAlignment="Center" HorizontalAlignment="Center" Margin="0,98,0,0" Text="Nombre" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" FontFamily="Noto Sans" Foreground="#FF79A386" Background="{x:Null}"/>
-            <Button x:Name="Btn_Demandar" Content="VALIDAR" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="130" FontFamily="Noto Sans" Foreground="#FFF7F7F7" BorderBrush="White" Background="#FF79A386" Margin="433,292,0,0"/>
+            <Button x:Name="Btn_Demandar" Content="VALIDAR" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="130" FontFamily="Noto Sans" Foreground="#FFF7F7F7" BorderBrush="White" Background="#FF79A386" Margin="646,292,0,0" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
             <TextBlock TextAlignment="Left" HorizontalAlignment="Left" Margin="403,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Language="es-es" Text="Precio"/></TextBlock>
             <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="256,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}" Text="Fecha Inicio"/>
             <TextBlock TextAlignment="Left" HorizontalAlignment="Left" Margin="403,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Language="es-es" Text="Fecha i"/></TextBlock>
             <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="305,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Language="es-es" Text="Precio"/></TextBlock>
             <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="256,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Text="Fecha "/><Run Language="es-es" Text="Fin"/></TextBlock>
             <TextBlock TextAlignment="Left" HorizontalAlignment="Left" Margin="403,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" FontFamily="Noto Sans" FontSize="16" Foreground="#FF79A386" Background="{x:Null}"><Run Text="Fecha "/><Run Language="es-es" Text="f"/></TextBlock>
-            <Button x:Name="Btn_Demandar_Copy" Content="INCIDENCIA" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="130" FontFamily="Noto Sans" Foreground="#FF79A386" BorderBrush="#FF79A386" Background="#FFF7F7F7" Margin="205,292,0,0"/>
+            <Button x:Name="Btn_Demandar_Copy" Content="VOLVER" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="130" FontFamily="Noto Sans" Foreground="#FF79A386" BorderBrush="#FF79A386" Background="#FFF7F7F7" Margin="27,292,0,0" Click="Btn_Demandar_Copy_Click"/>
+            <Button x:Name="Btn_Demandar_Copy1" Content="INCIDENCIA" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="130" FontFamily="Noto Sans" Foreground="#FF79A386" BorderBrush="#FF79A386" Background="#FFF7F7F7" Margin="646,217,0,0"/>
         </Grid>
 
     </Grid>

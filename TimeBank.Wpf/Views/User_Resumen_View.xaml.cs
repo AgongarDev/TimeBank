@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TimeBank.Bussines.UseCases;
 
 namespace TimeBank.Wpf.Views
 {
@@ -21,6 +22,7 @@ namespace TimeBank.Wpf.Views
         public User_Resumen_View()
         {
             InitializeComponent();
+            grid_resumen.DataContext = UserManagement.GetInstance().CurrentUser;
         }
     }
 }

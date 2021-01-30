@@ -30,7 +30,7 @@
             </Grid>
             <DataGrid Name="Db_Categoria" HorizontalAlignment="Left" Height="305" Margin="21,87,0,0" VerticalAlignment="Top" Width="295"/>
             <Button Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Height="35" Width="168" FontFamily="Noto Sans" Foreground="#FF79A386" BorderBrush="#FF79A386" Background="White" Margin="480,87,0,0" Click="Btn_modifyCat_Click"/>
-            <Button Content="NUEVA" HorizontalAlignment="Left" VerticalAlignment="Top" Height="35" Width="168" FontFamily="Noto Sans" Foreground="#FF79A386" BorderBrush="#FF79A386" Background="White" Margin="480,38,0,0" Click="Btn_nuevaCat_Click"/>
+            <Button Content="GUARDAR" HorizontalAlignment="Left" VerticalAlignment="Top" Height="35" Width="168" FontFamily="Noto Sans" Foreground="#FF79A386" BorderBrush="#FF79A386" Background="White" Margin="480,38,0,0" Click="Btn_nuevaCat_Click"/>
             <Button Content="ELIMINAR" HorizontalAlignment="Left" VerticalAlignment="Top" Height="35" Width="168" FontFamily="Noto Sans" Foreground="#FF79A386" BorderBrush="#FF79A386" Background="White" Margin="480,137,0,0" Click="Btn_Eliminar_Click"/>
             <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="35,56,0,0" Text="Nombre" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" FontFamily="Noto Sans" FontSize="16" Foreground="White" Background="{x:Null}"/>
             <TextBox x:Name="Txt_NombreCat" HorizontalAlignment="Left" Style="{DynamicResource roundTxtBox}" Height="24" VerticalAlignment="Top" Width="200" Margin="116,56,0,0">

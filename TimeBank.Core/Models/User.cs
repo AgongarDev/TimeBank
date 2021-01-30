@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 using TimeBank.Core.Enums;
@@ -18,6 +19,7 @@ namespace TimeBank.Core.Models
             Payments = new List<Payment>();
             Comments = new List<Comment>();
         }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long UserId { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }

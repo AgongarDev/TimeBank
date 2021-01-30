@@ -18,7 +18,7 @@ namespace TimeBank.Core.Models
 
         public override string ToString()
         {
-            return TypeStreet + @"\" + Street + ", " + Number + ", " + City + "-" + PostalCode; 
+            return Street; 
         }
     }
 }

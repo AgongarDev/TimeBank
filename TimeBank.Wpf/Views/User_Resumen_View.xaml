@@ -1,15 +1,19 @@
-﻿<UserControl x:Class="TimeBank.Wpf.Views.User_Resumen_View"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TimeBank.Wpf.Views"
+             xmlns:Models="clr-namespace:TimeBank.Core.Models;assembly=TimeBank.Core" x:Class="TimeBank.Wpf.Views.User_Resumen_View"
              mc:Ignorable="d" Width="826" Height="416">
-    <Grid Margin="0,0,21,56" Background="White">
+    <Grid x:Name="grid_resumen" Margin="0,0,21,56" Background="White">
+        <Grid.DataContext>
+            <Models:User/>
+        </Grid.DataContext>
         <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="655,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontFamily="Noto Sans" Foreground="#FF79A386" Background="{x:Null}"><Run Language="es-es" Text="Servicios Ofertados"/></TextBlock>
-        <DataGrid Margin="0,49,10,180"/>
-        <DataGrid Margin="0,207,10,22"/>
-        <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="655,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontFamily="Noto Sans" Foreground="#FF79A386" Background="{x:Null}"><Run Text="Servicios "/><Run Language="es-es" Text="Adquiridos"/></TextBlock>
+        <DataGrid Margin="0,49,10,180" ItemsSource="{Binding ProvideServices}"/>
+        <DataGrid Margin="0,207,10,22" ItemsSource="{Binding Validations}"/>
+        <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="655,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontFamily="Noto Sans" Foreground="#FF79A386" Background="{x:Null}"><Run Language="es-es" Text="Validaciones"/></TextBlock>
 
     </Grid>
 </UserControl>

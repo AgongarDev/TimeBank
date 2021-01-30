@@ -62,5 +62,10 @@ namespace TimeBank.Wpf
         {
             DataContext = new User_Resumen_ViewModel();
         }
+
+        private void BtnHome_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new User_Home_ViewModel();
+        }
     }
 }

@@ -53,7 +53,7 @@ namespace TimeBank.Wpf
             DataContext = new GestionUsers_ViewModel();
         }
 
-        private void Gestión_Usuarios_Copy_Click(object sender, RoutedEventArgs e)
+        private void Btn_GestionServicios_Click(object sender, RoutedEventArgs e)
         {
             DataContext = new GestionServicios_ViewModel();
         }

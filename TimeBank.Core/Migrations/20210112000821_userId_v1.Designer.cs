@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TimeBank.Core.DataAccess;
 
 namespace TimeBank.Core.Migrations
 {
     [DbContext(typeof(TimeBankContext))]
-    partial class TimeBankContextModelSnapshot : ModelSnapshot
+    [Migration("20210112000821_userId_v1")]
+    partial class userId_v1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

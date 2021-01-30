@@ -115,6 +115,24 @@ namespace TimeBank.Bussines.UseCases
             return service;
         }
 
+        public void RemoveCategory(Category cat)
+        {
+            if (RemovableCategory(cat))
+            {
+                _repo.RemoveCategory(cat);
+            }
+            else
+            {
+                throw new ArgumentException("Category not remomable. Services uses it");
+            }
+        }
+
+        private bool RemovableCategory(Category cat)
+        {
+            if (_repo.GetAllServices(cat) != null) { return false; }
+            return true;
+        }
+
         public IEnumerable<PaymentType> GetPayMethods()
         {
             return Enum.GetValues(typeof(PaymentType)).Cast<PaymentType>();

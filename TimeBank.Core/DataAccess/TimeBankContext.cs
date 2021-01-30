@@ -34,6 +34,33 @@ namespace TimeBank.Core.DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Token>().HasData(
+                new Token{
+                    ID = 1,
+                    Name = "Basic_1",
+                    Hours = 1
+                }, 
+                new Token{
+                    ID = 2,
+                    Name = "Basic_2",
+                    Hours = 2
+                },
+                new Token{
+                    ID = 5,
+                    Name = "Cobre_5",
+                    Hours = 5
+                },
+                new Token{
+                    ID = 10,
+                    Name = "Sylver_10",
+                    Hours = 10
+                },
+                new Token{
+                    ID = 20,
+                    Name = "Gold_20",
+                    Hours = 20
+                });
+
             modelBuilder.Entity<Payment>()
                 .HasOne(u => u.User)
                 .WithMany(p => p.Payments)
